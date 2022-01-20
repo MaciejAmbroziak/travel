@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Where to</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Trip type</th>
+            <th scope="col">Organizer</th>
+        </tr>
+        </thead>
+        {% for trip in my_trips %}
+            <tr>
+                <th scope="row">{{ trip.id(disabled=True) }}</th>
+                <td>{{ trip.where_to(disabled=True) }}</td>
+                <td>{{ trip.start(disabled=True) }}</td>
+                <td>{{ trip.end(disabled=True) }}</td>
+                <td>{{ trip.trip_type(disabled=True) }}</td>
+                <td>{{ trip.organizing_user(disabled=True)}}</td>
+                <td><a href="{{ url_for('index.I_will_go', trip_id=trip.id.data)}}">Submit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

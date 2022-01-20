@@ -1,0 +1,22 @@
+
+{% extends "index.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <div>
+        <form method="POST">
+            {{ render_field(form.trip_type) }}
+            {{ render_field(form.where_to) }}
+            {{ render_field(form.organizing_user) }}
+            {{ render_field(form.start) }}
+            {{ render_field(form.end) }}
+            {{ render_field(form.description) }}
+            {{ render_field(form.main_photo_url) }}
+            <input type="submit" href="{{url_for('index.trips')}}" value="submit">
+        </form>
+        {% for user in users %}
+    <ul>
+        <li>{{ user }}</li>
+    </ul>
+    {% endfor %}
+    </div>
+{% endblock %}
